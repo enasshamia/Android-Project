@@ -21,7 +21,7 @@
         android:label="fragment_sign_in"
         tools:layout="@layout/fragment_sign_in" >
         <action
-            android:id="@+id/action_signInFragment_to_passwordResetFragment"
+            android:id="@+id/action_reset_password"
             app:destination="@id/passwordResetFragment" />
     </fragment>
     <fragment
@@ -30,7 +30,7 @@
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
-            android:id="@+id/action_signUpFragment_to_confirmationFragment"
+            android:id="@+id/action_done"
             app:destination="@id/confirmationFragment" />
     </fragment>
     <fragment
@@ -39,10 +39,10 @@
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
-            android:id="@+id/action_splashFragment_to_signUpFragment"
+            android:id="@+id/action_sign_up"
             app:destination="@id/signUpFragment" />
         <action
-            android:id="@+id/action_splashFragment_to_signInFragment"
+            android:id="@+id/action_sign_in"
             app:destination="@id/signInFragment" />
     </fragment>
     <fragment
@@ -51,7 +51,7 @@
         android:label="fragment_tutorial_two"
         tools:layout="@layout/fragment_tutorial_two" >
         <action
-            android:id="@+id/action_tutorialTwoFragment_to_splashFragment"
+            android:id="@+id/action_next"
             app:destination="@id/splashFragment" />
     </fragment>
     <fragment
@@ -60,10 +60,12 @@
         android:label="fragment_tutorial_one"
         tools:layout="@layout/fragment_tutorial_one" >
         <action
-            android:id="@+id/action_tutorialOneFragment_to_tutorialTwoFragment"
-            app:destination="@id/tutorialTwoFragment" />
+            android:id="@+id/action_next"
+            app:destination="@id/tutorialTwoFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
         <action
-            android:id="@+id/action_tutorialOneFragment_to_splashFragment"
+            android:id="@+id/action_skip"
             app:destination="@id/splashFragment" />
     </fragment>
 </navigation>
