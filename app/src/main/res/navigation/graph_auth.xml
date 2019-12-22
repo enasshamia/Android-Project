@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.noteapp.ui.SplashFragment"
+        android:name="com.example.noteapp.ui.auth.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
