@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -31,4 +32,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.2.0-rc04'
     implementation 'androidx.navigation:navigation-ui:2.2.0-rc04'
     implementation 'com.google.android.material:material:1.2.0-alpha03'
+    //Firebase
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    // FirebaseUI for Firebase Realtime Database
+    implementation 'com.firebaseui:firebase-ui-database:6.2.0'
 }
