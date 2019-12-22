@@ -1,4 +1,4 @@
-package com.example.noteapp.ui;
+package com.example.noteapp.ui.auth;
 
 
 import android.os.Bundle;

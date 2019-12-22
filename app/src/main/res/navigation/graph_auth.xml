@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/graph_auth"
+    app:startDestination="@id/tutorialOneFragment">
+
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.example.noteapp.ui.auth.ConfirmationFragment"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation" />
+    <fragment
+        android:id="@+id/passwordResetFragment"
+        android:name="com.example.noteapp.ui.auth.PasswordResetFragment"
+        android:label="fragment_password_reset"
+        tools:layout="@layout/fragment_password_reset" />
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.noteapp.ui.auth.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_passwordResetFragment"
+            app:destination="@id/passwordResetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.noteapp.ui.auth.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.noteapp.ui.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tutorialTwoFragment"
+        android:name="com.example.noteapp.ui.auth.TutorialTwoFragment"
+        android:label="fragment_tutorial_two"
+        tools:layout="@layout/fragment_tutorial_two" >
+        <action
+            android:id="@+id/action_tutorialTwoFragment_to_splashFragment"
+            app:destination="@id/splashFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tutorialOneFragment"
+        android:name="com.example.noteapp.ui.auth.TutorialOneFragment"
+        android:label="fragment_tutorial_one"
+        tools:layout="@layout/fragment_tutorial_one" >
+        <action
+            android:id="@+id/action_tutorialOneFragment_to_tutorialTwoFragment"
+            app:destination="@id/tutorialTwoFragment" />
+        <action
+            android:id="@+id/action_tutorialOneFragment_to_splashFragment"
+            app:destination="@id/splashFragment" />
+    </fragment>
+</navigation>

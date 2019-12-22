@@ -1,4 +1,4 @@
-package com.example.noteapp.ui;
+package com.example.noteapp.ui.auth;
 
 
 import android.os.Bundle;
@@ -14,10 +14,10 @@ import com.example.noteapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TutorialTwoFragment extends Fragment {
+public class SignUpFragment extends Fragment {
 
 
-    public TutorialTwoFragment() {
+    public SignUpFragment() {
         // Required empty public constructor
     }
 
@@ -26,7 +26,7 @@ public class TutorialTwoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tutorial_two, container, false);
+        return inflater.inflate(R.layout.fragment_sign_up, container, false);
     }
 
 }
