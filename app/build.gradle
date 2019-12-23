@@ -36,4 +36,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.2.0'
     // FirebaseUI for Firebase Realtime Database
     implementation 'com.firebaseui:firebase-ui-database:6.2.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
 }
