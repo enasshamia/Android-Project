@@ -6,8 +6,17 @@ public class Note {
     private String noteTitle, noteContent;
     private int color;
     private Date timestamp;
+    private String bookId;
 
     public Note() {
+    }
+
+    public String getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(String bookId) {
+        this.bookId = bookId;
     }
 
     public String getNoteTitle() {
