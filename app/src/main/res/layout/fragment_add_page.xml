@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_book" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/et_book_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -47,13 +47,14 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save_book"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/et_book_title" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -73,11 +74,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/color_1"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -85,18 +88,20 @@
                 android:src="@drawable/g_color_1" />
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/color_2"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="8dp"
-                android:src="@drawable/g_color_2" />
+                android:background="@drawable/g_color_2" />
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/color_3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="8dp"
-                android:src="@drawable/g_color_3" />
+                android:background="@drawable/g_color_3" />
         </LinearLayout>
 
         <LinearLayout
@@ -110,21 +115,21 @@
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="8dp"
-                android:src="@drawable/g_color_1" />
+                android:background="@drawable/g_color_1" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="8dp"
-                android:src="@drawable/g_color_2" />
+                android:background="@drawable/g_color_2" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="8dp"
-                android:src="@drawable/g_color_3" />
+                android:background="@drawable/g_color_3" />
         </LinearLayout>
 
         <LinearLayout
@@ -138,21 +143,21 @@
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="8dp"
-                android:src="@drawable/g_color_1" />
+                android:background="@drawable/g_color_1" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="8dp"
-                android:src="@drawable/g_color_2" />
+                android:background="@drawable/g_color_2" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_margin="8dp"
-                android:src="@drawable/g_color_3" />
+                android:background="@drawable/g_color_3" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

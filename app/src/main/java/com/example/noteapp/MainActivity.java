@@ -16,26 +16,18 @@ public class MainActivity extends AppCompatActivity {
     public static FirebaseAuth mAuth;
     public static FirebaseDatabase firebaseDatabase;
 
-    private FloatingActionButton fab_add;
-    private NavController navController;
+    public static NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        fab_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
     }
 
     private void init() {
+        navController = Navigation.findNavController(MainActivity.this, R.id.fragment);
         mAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        fab_add = findViewById(R.id.fab_add);
-        navController = Navigation.findNavController(this, R.id.fragment);
     }
 }
