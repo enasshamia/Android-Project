@@ -13,10 +13,22 @@
         <action
             android:id="@+id/action_add_book"
             app:destination="@id/addPageFragment" />
+        <action
+            android:id="@+id/action_notes"
+            app:destination="@id/notesFragment" />
     </fragment>
     <fragment
         android:id="@+id/addPageFragment"
         android:name="com.example.noteapp.ui.main.AddPageFragment"
         android:label="fragment_add_page"
         tools:layout="@layout/fragment_add_page" />
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.example.noteapp.ui.main.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" >
+        <argument
+            android:name="bookId"
+            app:argType="string" />
+    </fragment>
 </navigation>
