@@ -30,7 +30,7 @@ import static com.example.noteapp.MainActivity.mAuth;
 public class MainFragment extends Fragment {
 
     private FloatingActionButton fab_add_book;
-    private RecyclerView rv_notes;
+    private RecyclerView rv_books;
     private FirebaseRecyclerAdapter<Book, BooksViewHolder> adapter;
     private LinearLayout ll_no_notes;
 
@@ -45,7 +45,7 @@ public class MainFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
-        rv_notes = view.findViewById(R.id.rv_books);
+        rv_books = view.findViewById(R.id.rv_books);
         ll_no_notes = view.findViewById(R.id.ll_no_notes);
         fab_add_book = view.findViewById(R.id.fab_add_book);
         fab_add_book.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +54,7 @@ public class MainFragment extends Fragment {
                 MainActivity.navController.navigate(R.id.action_add_book);
             }
         });
-        rv_notes.setLayoutManager(new GridLayoutManager(view.getContext(), 3));
+        rv_books.setLayoutManager(new GridLayoutManager(view.getContext(), 3));
 
         Query query = MainActivity.firebaseDatabase.getReference("Books").child(mAuth.getCurrentUser().getUid());
 
@@ -77,7 +77,7 @@ public class MainFragment extends Fragment {
             }
         };
 
-        rv_notes.setAdapter(adapter);
+        rv_books.setAdapter(adapter);
         adapter.startListening();
         return view;
     }
@@ -85,10 +85,10 @@ public class MainFragment extends Fragment {
     private void showHide(int visible) {
         if (visible == 0) {
             ll_no_notes.setVisibility(View.VISIBLE);
-            rv_notes.setVisibility(View.GONE);
+            rv_books.setVisibility(View.GONE);
         } else {
             ll_no_notes.setVisibility(View.GONE);
-            rv_notes.setVisibility(View.VISIBLE);
+            rv_books.setVisibility(View.VISIBLE);
         }
 
     }

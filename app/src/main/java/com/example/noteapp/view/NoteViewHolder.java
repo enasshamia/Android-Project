@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.noteapp.R;
 import com.example.noteapp.model.Note;
 
+import java.util.Date;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class NoteViewHolder extends RecyclerView.ViewHolder {
@@ -31,11 +33,11 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
         tv_title.setText(note.getNoteTitle());
         tv_content.setText(note.getNoteContent());
         civ_color.setImageResource(getColor(note.getColor()));
-        tv_date.setText(note.getTimestamp().toString());
+        Date date = new Date(note.getTimestamp());
+        tv_date.setText(date.toString());
         container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                return;
             }
         });
     }
