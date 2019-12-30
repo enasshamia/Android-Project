@@ -8,8 +8,11 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.noteapp.MainActivity;
 import com.example.noteapp.R;
 import com.example.noteapp.model.Note;
+import com.example.noteapp.ui.main.MainFragment;
+import com.example.noteapp.ui.main.NotesFragmentDirections;
 
 import java.util.Date;
 
@@ -19,6 +22,7 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
     private CircleImageView civ_color;
     private TextView tv_title, tv_content, tv_date;
     private CardView container;
+    private String bookId;
 
     public NoteViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -29,7 +33,8 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
         tv_date = itemView.findViewById(R.id.timestamp);
     }
 
-    public void bind(Note note) {
+    public void bind(final Note note, final String bookId) {
+        this.bookId = bookId;
         tv_title.setText(note.getNoteTitle());
         tv_content.setText(note.getNoteContent());
         civ_color.setImageResource(getColor(note.getColor()));
@@ -38,6 +43,7 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
         container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MainActivity.navController.navigate(NotesFragmentDirections.actionAddEditNote(bookId, note));
             }
         });
     }

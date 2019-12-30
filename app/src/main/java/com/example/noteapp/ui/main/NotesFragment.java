@@ -3,6 +3,7 @@ package com.example.noteapp.ui.main;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +21,7 @@ import com.example.noteapp.model.Note;
 import com.example.noteapp.view.BooksViewHolder;
 import com.example.noteapp.view.NoteViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.Query;
 
@@ -63,9 +65,40 @@ public class NotesFragment extends Fragment {
 
         Query query = MainActivity.firebaseDatabase
                 .getReference("Notes")
-                .child(mAuth.getCurrentUser().getUid()).equalTo("bookId", bookId);
+                .child(mAuth.getCurrentUser().getUid())
+                .child(bookId);
+        FirebaseRecyclerOptions<Note> noteFirebaseRecyclerOptions = new FirebaseRecyclerOptions.Builder<Note>()
+                .setQuery(query, Note.class)
+                .build();
 
+        adapter = new FirebaseRecyclerAdapter<Note, NoteViewHolder>(noteFirebaseRecyclerOptions) {
+            @Override
+            protected void onBindViewHolder(@NonNull NoteViewHolder holder, int position, @NonNull Note model) {
+                model.setNoteId(adapter.getSnapshots().getSnapshot(position).getKey());
+                holder.bind(model, bookId);
+                showHide(adapter.getItemCount());
+            }
+
+            @NonNull
+            @Override
+            public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_row_note, parent, false);
+                return new NoteViewHolder(itemView);
+            }
+        };
+        adapter.startListening();
+        rv_notes.setAdapter(adapter);
         return view;
     }
 
+    private void showHide(int visible) {
+        if (visible == 0) {
+            ll_no_notes.setVisibility(View.VISIBLE);
+            rv_notes.setVisibility(View.GONE);
+        } else {
+            ll_no_notes.setVisibility(View.GONE);
+            rv_notes.setVisibility(View.VISIBLE);
+        }
+
+    }
 }

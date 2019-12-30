@@ -46,5 +46,8 @@
             android:name="note"
             app:argType="com.example.noteapp.model.Note"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_notes"
+            app:destination="@id/notesFragment" />
     </fragment>
 </navigation>

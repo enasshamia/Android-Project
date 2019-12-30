@@ -10,8 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.noteapp.MainActivity;
 import com.example.noteapp.R;
 import com.example.noteapp.model.Book;
+import com.example.noteapp.ui.main.MainFragmentDirections;
 
 
 public class BooksViewHolder extends RecyclerView.ViewHolder {
@@ -26,7 +28,7 @@ public class BooksViewHolder extends RecyclerView.ViewHolder {
         tv_title = itemView.findViewById(R.id.tv_title);
     }
 
-    public void bind(Book model) {
+    public void bind(final Book model) {
         tv_title.setText(model.getBookTitle());
         if (model.getBookColor().equals("")) {
             model.setBookColor("0");
@@ -36,7 +38,7 @@ public class BooksViewHolder extends RecyclerView.ViewHolder {
         container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                MainActivity.navController.navigate(MainFragmentDirections.actionNotes(model.getBookId()));
             }
         });
     }

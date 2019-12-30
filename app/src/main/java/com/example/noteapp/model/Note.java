@@ -19,7 +19,6 @@ public class Note implements Parcelable {
         noteContent = in.readString();
         color = in.readInt();
         timestamp = in.readLong();
-        bookId = in.readString();
         noteId = in.readString();
     }
 
@@ -35,13 +34,6 @@ public class Note implements Parcelable {
         }
     };
 
-    public String getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(String bookId) {
-        this.bookId = bookId;
-    }
 
     public String getNoteTitle() {
         return noteTitle;
@@ -94,7 +86,14 @@ public class Note implements Parcelable {
         dest.writeString(noteContent);
         dest.writeInt(color);
         dest.writeLong(timestamp);
-        dest.writeString(bookId);
         dest.writeString(noteId);
+    }
+
+    public String getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(String bookId) {
+        this.bookId = bookId;
     }
 }

@@ -51,9 +51,9 @@ public class AddNoteFragment extends Fragment {
         initView();
         AddNoteFragmentArgs args = AddNoteFragmentArgs.fromBundle(getArguments());
         bookId = args.getBookId();
-        note.setBookId(bookId);
         if (args.getNote() != null) {
             note = args.getNote();
+            noteId = note.getNoteId();
             initNote(note);
         } else {
             initNote();
@@ -76,10 +76,10 @@ public class AddNoteFragment extends Fragment {
                 note.setNoteTitle(title);
                 note.setNoteContent(content);
                 note.setTimestamp(System.currentTimeMillis());
-                note.setBookId(bookId);
                 note.setNoteId("");
                 firebaseDatabase.getReference("Notes")
                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .child(bookId)
                         .push()
                         .setValue(note)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -114,10 +114,10 @@ public class AddNoteFragment extends Fragment {
                 note.setNoteTitle(title);
                 note.setNoteContent(content);
                 note.setTimestamp(System.currentTimeMillis());
-                note.setBookId(bookId);
-                note.setNoteId("");
+                note.setNoteId(noteId);
                 firebaseDatabase.getReference("Notes")
                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .child(bookId)
                         .child(note.getNoteId())
                         .setValue(note)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
